@@ -1,0 +1,38 @@
+# Virtual environments
+**/.venv
+**/.venv/
+**/env/
+**/venv/
+
+# Node modules & frontend artifacts
+**/node_modules
+**/node_modules/
+**/dist
+**/dist/
+**/.next/
+
+# Python cache & compiled files
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.pytest_cache
+**/.coverage
+**/htmlcov
+
+# Storage and large datasets
+storage/
+storage/raw/*
+storage/quarantine/*
+storage/processed/*
+datasets/
+datasets/*
+notebooks/
+
+# Git and OS metadata
+.git/
+.gitignore
+.gitattributes
+.DS_Store
+Thumbs.db
+*.log

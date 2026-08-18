@@ -1,0 +1,97 @@
+# Tiger Re-ID Configuration
+# =========================
+
+# Core matching thresholds
+auto_threshold: 0.85
+margin_threshold: 0.08
+top_k: 20
+
+# Multi-part feature configuration
+multi_part:
+  enabled: true
+  head_dim: 128
+  flank_dim: 256
+  hind_dim: 128
+  global_dim: 512
+  fused_dim: 512
+
+# Fusion weights (must sum to ~1.0)
+fusion_weights:
+  global: 0.30
+  flank: 0.40
+  head: 0.15
+  hind: 0.15
+
+# Metric learning training configuration
+training:
+  backbone: convnext_small
+  loss: triplet_arcface
+  triplet_margin: 0.3
+  arcface_s: 30.0
+  arcface_m: 0.50
+  mining: semi_hard
+  embedding_dim: 512
+  epochs: 30
+  learning_rate: 0.0001
+  weight_decay: 0.0005
+  pk_sampling:
+    p: 8
+    k: 4
+  scheduler: cosine
+  gradient_clip: 1.0
+  warmup_epochs: 3
+
+# Re-ranking configuration
+reranking:
+  enabled: true
+  first_stage_k: 20
+  final_k: 3
+  sift_verification: true
+  sift_method: sift
+  min_sift_matches: 10
+
+# Adaptive confidence calibration
+confidence:
+  adaptive: true
+  quality_weight: 0.15
+  pose_weight: 0.10
+  visibility_weight: 0.10
+  base_match_threshold: 0.85
+  base_review_threshold: 0.65
+
+# Temporal aggregation
+temporal:
+  enabled: true
+  window_seconds: 60
+  strategy: quality_weighted
+  min_quality: 0.1
+
+# Pose estimation
+pose:
+  enabled: true
+  model: hrnet_w32
+  inference_required: false
+  fallback: geometric
+  confidence_threshold: 0.3
+
+# Open-set recognition
+open_set:
+  enabled: true
+  method: percentile
+  novelty_threshold: 0.65
+  margin_threshold: 0.05
+
+# Backbone benchmarking
+backbones:
+  default: convnext_small
+  available:
+    - resnet50
+    - efficientnetv2_s
+    - convnext_small
+    - vit_b_16
+    - convnext_vit_fusion
+
+# Identity gallery
+gallery:
+  max_embeddings_per_side: 50
+  prototype_update_interval: 5

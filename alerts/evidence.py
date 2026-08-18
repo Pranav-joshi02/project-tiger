@@ -1,0 +1,1 @@
+def pack(rule:str,observations:list[dict],model_version:str)->dict:return {"rule":rule,"observation_count":len(observations),"model_version":model_version,"observation_ids":[x.get("id") for x in observations]}

@@ -1,0 +1,15 @@
+triage:
+  subject_threshold: 0.80
+  blank_threshold: 0.30
+reid:
+  auto_assignment_threshold: 0.90
+  candidate_margin_threshold: 0.08
+spatial:
+  range_shift_threshold_km2: 15
+  buffer_movement_threshold_km: 5
+species:
+  spotted_deer_threshold: 0.50
+  sloth_bear_threshold: 0.45
+  use_visual_analyzers: true
+  use_pench_model: true
+  pench_model_path: models/checkpoints/pench-species-detector.pt

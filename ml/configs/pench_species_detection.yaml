@@ -1,0 +1,17 @@
+weights: models/checkpoints/pench-species-detector.pt
+fallback_weights: yolov8n.pt
+confidence:
+  tiger: 0.40
+  spotted_deer: 0.35
+  sloth_bear: 0.35
+  leopard: 0.40
+  other_animal: 0.30
+nms_iou: 0.45
+input_size: 640
+use_visual_analyzers: true
+classes:
+  0: tiger
+  1: spotted_deer
+  2: sloth_bear
+  3: leopard
+  4: other_animal

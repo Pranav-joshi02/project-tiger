@@ -1,0 +1,27 @@
+# Pench Tiger Reserve - Multi-Species Detection Dataset
+# Fine-tuned for species commonly found in Pench: tigers, spotted deer, sloth bears
+
+path: datasets/pench_species
+train: images/train
+val: images/val
+test: images/test
+
+nc: 5
+names:
+  0: tiger
+  1: spotted_deer
+  2: sloth_bear
+  3: leopard
+  4: other_animal
+
+# Augmentation settings optimized for camera trap imagery
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+degrees: 10.0
+translate: 0.1
+scale: 0.5
+fliplr: 0.5
+mosaic: 1.0
+mixup: 0.15
+copy_paste: 0.1

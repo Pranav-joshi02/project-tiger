@@ -1,0 +1,4 @@
+app_env: development
+storage_root: storage
+triage_subject_threshold: 0.80
+triage_blank_threshold: 0.30

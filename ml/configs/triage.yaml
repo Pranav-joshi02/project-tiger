@@ -1,0 +1,3 @@
+model: MDV6-mit-yolov9-c
+blank_threshold: 0.30
+subject_threshold: 0.80

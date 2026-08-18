@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────────────────────────────────────
+   BASE — Light professional forest theme
+   ─────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-page-100 text-ink-900 font-sans antialiased;
+    background-color: #f0ede6;
+  }
+
+  ::selection {
+    background-color: #d4994b;
+    color: #ffffff;
+  }
+  ::-moz-selection {
+    background-color: #d4994b;
+    color: #ffffff;
+  }
+
+  /* ── Form Controls (Light Theme) ── */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  select,
+  textarea {
+    background-color: #ffffff;
+    color: #1e3529;
+    border: 1px solid #e1e5df;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #8a968e;
+    opacity: 1;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    background-color: #ffffff;
+    border-color: #2d6a4f;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(45,106,79,0.12);
+  }
+
+  select option {
+    background-color: #ffffff;
+    color: #1e3529;
+    padding: 10px 12px;
+  }
+
+  select option:checked {
+    background-color: #f0ede6;
+    color: #d4994b;
+    font-weight: 700;
+  }
+
+  /* Autofill override */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-text-fill-color: #1e3529 !important;
+    -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+    box-shadow: 0 0 0 1000px #ffffff inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type="range"] {
+    accent-color: #2d6a4f;
+  }
+}
+
+/* ───────────────────────────────────────────────
+   COMPONENTS
+   ─────────────────────────────────────────────── */
+@layer components {
+  /* Sidebar dark surface */
+  .sidebar-surface {
+    background-color: #1b4332;
+    color: #e1f0e5;
+  }
+
+  /* Card surfaces */
+  .surface-card {
+    background: #ffffff;
+    border: 1px solid #e1e5df;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(30,53,41,0.06), 0 4px 12px rgba(30,53,41,0.04);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .surface-card:hover {
+    box-shadow: 0 4px 16px rgba(30,53,41,0.10), 0 1px 4px rgba(30,53,41,0.06);
+  }
+
+  .surface-card-flat {
+    background: #ffffff;
+    border: 1px solid #e1e5df;
+    border-radius: 12px;
+  }
+
+  /* Subtle inset surface for secondary containers */
+  .surface-inset {
+    background: #f7f5f0;
+    border: 1px solid #e6e2d9;
+    border-radius: 10px;
+  }
+
+  /* Badge/pill styles */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .badge-success {
+    background: #e3f1e5;
+    color: #36744a;
+    border: 1px solid #c3e1cb;
+  }
+  .badge-warning {
+    background: #fef3e2;
+    color: #a56c24;
+    border: 1px solid #f1d7b0;
+  }
+  .badge-danger {
+    background: #fce8e4;
+    color: #aa4331;
+    border: 1px solid #f0c4bb;
+  }
+  .badge-info {
+    background: #e8eef5;
+    color: #507095;
+    border: 1px solid #ccd8e5;
+  }
+  .badge-neutral {
+    background: #f3f5f3;
+    color: #5a6b60;
+    border: 1px solid #e1e5df;
+  }
+}
+
+/* ───────────────────────────────────────────────
+   UTILITIES
+   ─────────────────────────────────────────────── */
+
+/* Scrollbar hiding */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom thin scrollbar for light theme */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #c8d0ca;
+  border-radius: 4px;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #8a968e;
+}
+
+/* ───────────────────────────────────────────────
+   LEAFLET MAP — Light Theme Overrides
+   ─────────────────────────────────────────────── */
+.leaflet-container {
+  background-color: #f0ede6 !important;
+  font-family: 'Manrope', sans-serif !important;
+  border-radius: 12px;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  border: 1px solid #e1e5df !important;
+  border-radius: 10px !important;
+  color: #1e3529 !important;
+  box-shadow: 0 6px 24px rgba(30,53,41,0.12) !important;
+  padding: 4px !important;
+}
+
+.leaflet-popup-tip {
+  background: #ffffff !important;
+  border: 1px solid #e1e5df !important;
+}
+
+.leaflet-control-zoom a {
+  background: #ffffff !important;
+  color: #1e3529 !important;
+  border-color: #e1e5df !important;
+}
+.leaflet-control-zoom a:hover {
+  background: #f7f5f0 !important;
+}
+
+/* Tiger marker pulse */
+.tiger-pulse-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tiger-pulse-halo {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(212,153,75,0.25);
+  border: 1.5px solid #d4994b;
+  animation: tigerPulse 2s infinite ease-out;
+}
+
+@keyframes tigerPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* ───────────────────────────────────────────────
+   STAGGER ANIMATION DELAYS
+   ─────────────────────────────────────────────── */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* ───────────────────────────────────────────────
+   TRANSITION UTILITIES
+   ─────────────────────────────────────────────── */
+.transition-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.transition-lift:hover {
+  transform: translateY(-2px);
+}

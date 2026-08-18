@@ -1,0 +1,2 @@
+weights: models/checkpoints/tiger-detector.pt
+confidence: 0.35
